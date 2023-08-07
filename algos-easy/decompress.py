@@ -9,10 +9,26 @@
 # The function should return an decompressed version of the string where each 'char' of a group 
 # is repeated 'number' times consecutively. 
 # You may assume that the input string is well-formed according to the previously mentioned pattern.
-
 def decompress(s):
-    pass #TODO:
+    result = []
 
+    i = 0; j = 0
+    
+    numbers = '0123456789'
+
+
+    while j < len(s):
+        if s[j] in numbers: 
+            j += 1
+        else:
+            #extract number from string using the difference b/w i&j
+            num = int(s[i:j])
+            result.append(num * s[j])
+            # multiply the number by the char
+            j += 1
+            i = j 
+
+    return ''.join(result)        
 
 
 
